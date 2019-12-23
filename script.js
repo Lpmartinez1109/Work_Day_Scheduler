@@ -1,3 +1,5 @@
+
+
 $(document).ready(function(){
 
     var description = $(".description");
@@ -16,8 +18,13 @@ $(document).ready(function(){
         }
     })
 
-}
-)
+});
+$("*[data-text]").each(function () {
+    $(this).val(localStorage.getItem("item-" + $(this).attr("data-text")));
+});
+$("*[data-text]").on("keyup", function (itm) {
+    localStorage.setItem("item-" + $(this).attr("data-text"), $(this).val());
+});
 
 
 
@@ -49,29 +56,29 @@ $(document).ready(function(){
 // var date = moment();
 // console.log(date);
 
-if (localStorage[".description"])
-{
-    var description = localStorage[".description"] ;
-    document.getElementById(".description").value = description;
-    alert("Your event has been saved")
-}
+// if (localStorage[".description"])
+// {
+//     var description = localStorage[".description"] ;
+//     document.getElementById(".description").value = description;
+//     alert("Your event has been saved")
+// }
 
-var saveBtn = document.getElementById("save");
-    if(saveBth){
-        addEventListener("click", save())
-    };
-    function save(){
-        // var description = document.getElementById(".description").value;
-        //localStorage["user"] = user ;
+// var saveBtn = document.getElementById("save");
+//     if(saveBth){
+//         addEventListener("click", save())
+//     };
+//     function save(){
+//         // var description = document.getElementById(".description").value;
+//         //localStorage["user"] = user ;
             
-            localStorage.setItem(".description", description) ;
-            alert("Your event has been saved!") ;
-            $(".description").each(function () {
-                $(this).val(localStorage.getItem("item-" + $(this).attr("data-value")));
-            });
-            $(".description").on("keyup", function (itm) {
-                localStorage.setItem("item-" + $(this).attr("data-value"), $(this).val());
-            })
-            preventDefault();
-        };
-        console.log(saveBtn);
+//             localStorage.setItem(".description", description) ;
+//             alert("Your event has been saved!") ;
+//             $(".description").each(function () {
+//                 $(this).val(localStorage.getItem("item-" + $(this).attr("data-value")));
+//             });
+//             $(".description").on("keyup", function (itm) {
+//                 localStorage.setItem("item-" + $(this).attr("data-value"), $(this).val());
+//             })
+//             preventDefault();
+//         };
+//         console.log(saveBtn)
