@@ -1,8 +1,11 @@
 
+var date = moment().format('MMMM Do YYYY, h:mm:ss a')
+$("#currentDay").append(date)
+var date = moment().hour()
+
 
 $(document).ready(function(){
 
-    var description = $(".description");
 
  
 
@@ -16,57 +19,57 @@ $("*[data-text]").on("keyup", function (itm) {
 
 
 
-var day= new Date();
-document.write("getTime() : " + day.getTime() ); 
+// var day= new Date();
+// document.write("getTime() : " + day.getTime() ); 
 
 
 
-console.log(day);
+// console.log(day);
 
 
-var time = (".description")
-for (let i = 0; i < time.length; i++) {
-    var timeArr = time[i];
-    var timeEl = JSON.stringify(timeArr)
-    console.log(timeEl.dataValue)
-}
-function save() 
-{ var testObject = { 'one': 1, 'two': 2, 'three': 3 };
+// var time = (".description")
+// for (let i = 0; i < time.length; i++) {
+//     var timeArr = time[i];
+//     var timeEl = JSON.stringify(timeArr)
+//     console.log(timeEl.dataValue)
+// }
+// function save() 
+// { var testObject = { 'one': 1, 'two': 2, 'three': 3 };
 
-// Put the object into storage
-localStorage.setItem('testObject', JSON.stringify(testObject));
+// // Put the object into storage
+// localStorage.setItem('testObject', JSON.stringify(testObject));
 
-// Retrieve the object from storage
-var retrievedObject = localStorage.getItem('testObject');
+// // Retrieve the object from storage
+// var retrievedObject = localStorage.getItem('testObject');
 
-console.log('retrievedObject: ', JSON.parse(retrievedObject));
-}
-var date = moment();
-console.log(date);
+// console.log('retrievedObject: ', JSON.parse(retrievedObject));
+// }
+// var date = moment();
+// console.log(date);
 
-if (localStorage[".description"])
-{
-    var description = localStorage[".description"] ;
-    document.getElementById(".description").value = description;
-    alert("Your event has been saved")
-}
+// if (localStorage[".description"])
+// {
+//     var description = localStorage[".description"] ;
+//     document.getElementById(".description").value = description;
+//     alert("Your event has been saved")
+// }
 
-var saveBtn = document.getElementById("save");
-    if(saveBth){
-        addEventListener("click", save())
-    };
-    function save(){
-        // var description = document.getElementById(".description").value;
-        //localStorage["user"] = user ;
+// var saveBtn = document.getElementById("save");
+//     if(saveBth){
+//         addEventListener("click", save())
+//     };
+//     function save(){
+//         // var description = document.getElementById(".description").value;
+//         //localStorage["user"] = user ;
             
-            localStorage.setItem(".description", description) ;
-            alert("Your event has been saved!") ;
-            $(".description").each(function () {
-                $(this).val(localStorage.getItem("item-" + $(this).attr("data-value")));
-            });
-            $(".description").on("keyup", function (itm) {
-                localStorage.setItem("item-" + $(this).attr("data-value"), $(this).val());
-            })
-            preventDefault();
-        };
-        console.log(saveBtn)
+//             localStorage.setItem(".description", description) ;
+//             alert("Your event has been saved!") ;
+//             $(".description").each(function () {
+//                 $(this).val(localStorage.getItem("item-" + $(this).attr("data-value")));
+//             });
+//             $(".description").on("keyup", function (itm) {
+//                 localStorage.setItem("item-" + $(this).attr("data-value"), $(this).val());
+//             })
+//             preventDefault();
+//         };
+//         console.log(saveBtn)
