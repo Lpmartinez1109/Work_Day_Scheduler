@@ -1,75 +1,42 @@
+$(document).ready(function () {
+    $(".saveBtn").on("click", function () {
+        var value = $(this).siblings(".description").val();
+        var time = $(this).parent().attr("id");
+        localStorage.setItem(time, value)
+    })
+    function hourUpdate() {
+        var currentHour = moment().hours();
+        $(".time-block").each(function () {
+            var blockHour = parseInt($(this).attr("id").split("-")[1]);
+            if (blockHour < currentHour) {
+                $(this).addClass("past");
+            }
+            else if (blockHour === currentHour) {
+                $(this).removeClass("past")
+                $(this).addClass("present")
+            }
+            else {
+                $(this).removeClass("past")
+                $(this).removeClass("present")
+                $(this).addClass("future")
+            }
+        });
+    }
 
-var date = moment().format('MMMM Do YYYY, h:mm:ss a')
-$("#currentDay").append(date)
-var date = moment().hour()
+    hourUpdate();
 
+    var interval = setInterval(hourUpdate, 15000);
 
-$(document).ready(function(){
+    $("#hour-9 .description").val(localStorage.getItem("hour-9"));
+    $("#hour-10 .description").val(localStorage.getItem("hour-10"));
+    $("#hour-11 .description").val(localStorage.getItem("hour-11"));
+    $("#hour-12 .description").val(localStorage.getItem("hour-12"));
+    $("#hour-13 .description").val(localStorage.getItem("hour-13"));
+    $("#hour-14 .description").val(localStorage.getItem("hour-14"));
+    $("#hour-15 .description").val(localStorage.getItem("hour-15"));
+    $("#hour-16 .description").val(localStorage.getItem("hour-16"));
+    $("#hour-17 .description").val(localStorage.getItem("hour-17"));
 
-
- 
-
+    $("currentDay").text(moment().format("dddd, MMMM Do"));
 });
-$("*[data-text]").each(function () {
-    $(this).val(localStorage.getItem("item-" + $(this).attr("data-text")));
-});
-$("*[data-text]").on("keyup", function (itm) {
-    localStorage.setItem("item-" + $(this).attr("data-text"), $(this).val());
-});
 
-
-
-// var day= new Date();
-// document.write("getTime() : " + day.getTime() ); 
-
-
-
-// console.log(day);
-
-
-// var time = (".description")
-// for (let i = 0; i < time.length; i++) {
-//     var timeArr = time[i];
-//     var timeEl = JSON.stringify(timeArr)
-//     console.log(timeEl.dataValue)
-// }
-// function save() 
-// { var testObject = { 'one': 1, 'two': 2, 'three': 3 };
-
-// // Put the object into storage
-// localStorage.setItem('testObject', JSON.stringify(testObject));
-
-// // Retrieve the object from storage
-// var retrievedObject = localStorage.getItem('testObject');
-
-// console.log('retrievedObject: ', JSON.parse(retrievedObject));
-// }
-// var date = moment();
-// console.log(date);
-
-// if (localStorage[".description"])
-// {
-//     var description = localStorage[".description"] ;
-//     document.getElementById(".description").value = description;
-//     alert("Your event has been saved")
-// }
-
-// var saveBtn = document.getElementById("save");
-//     if(saveBth){
-//         addEventListener("click", save())
-//     };
-//     function save(){
-//         // var description = document.getElementById(".description").value;
-//         //localStorage["user"] = user ;
-            
-//             localStorage.setItem(".description", description) ;
-//             alert("Your event has been saved!") ;
-//             $(".description").each(function () {
-//                 $(this).val(localStorage.getItem("item-" + $(this).attr("data-value")));
-//             });
-//             $(".description").on("keyup", function (itm) {
-//                 localStorage.setItem("item-" + $(this).attr("data-value"), $(this).val());
-//             })
-//             preventDefault();
-//         };
-//         console.log(saveBtn)
